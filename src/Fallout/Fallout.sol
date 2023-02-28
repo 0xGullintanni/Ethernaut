@@ -24,10 +24,7 @@ contract Fallout {
     }
 
     modifier onlyOwner {
-      require(
-        msg.sender == owner,
-        "caller is not the owner"
-      );
+      require(msg.sender == owner, "caller is not the owner");
       _;
     }
 
