@@ -2,11 +2,8 @@
 pragma solidity ^0.8.0;
 
 interface IFallout {
-    function allocate() external payable;
     function Fal1out() external payable;
-    function sendAllocation(address payable allocator) external;
     function collectAllocations() external;
-    function allocatorBalance(address allocator) external view returns (uint);
 }
 
 contract Attack {
