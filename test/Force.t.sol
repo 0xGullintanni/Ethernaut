@@ -11,8 +11,14 @@ contract ForceTest is Test {
 
     function setUp() public {
         force = new Force();
-        attack = new Attack();
+        attack = new Attack(address(force));
     }
 
-    function testAttack() public {}
+    function testAttack() public {
+        vm.deal(address(attack), .1 ether);
+        assertEq(address(force).balance, 0 ether);
+        attack.attack{value: address(attack).balance }();
+        assertEq(address(attack).balance, 0 ether);
+        assertEq(address(force).balance, .2 ether); // selfdestruct returns half the gas of transacting to the target addr but wtf is it doubling?
+    }
 }
